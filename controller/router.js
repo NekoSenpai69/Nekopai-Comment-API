@@ -1,20 +1,20 @@
 const nm = require("nodemailer");
 
 const message = async(req,res) => {
-  console.log("right")
-const {email,name,number,message,subject} = req.query
-  console.log({email,name,number,message,subject});
+  
+const {email,name,number,message,subject,user, password} = req.query
+  
 let transporter = await nm.createTransport({
   host:"smtp.gmail.com",
   port:587,
   auth: {
-    user:"nekosenpai269@gmail.com",
-    pass:"fvylevcjvagwoszz"
+    user:user,
+    pass: password 
   }
 })
 let info = {
-    from:"nekosenpai269@gmail.com",
-    to:"nekosenpai269@gmail.com",
+    from:user,
+    to:user,
     subject:subject,
     text: 
       `
